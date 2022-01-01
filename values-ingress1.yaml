@@ -1,0 +1,14 @@
+ingress:
+  annotations: {
+    kubernetes.io/ingress.class: nginx,
+    nginx.ingress.kubernetes.io/configuration-snippet: "more_set_headers 'category: fruit';",
+    }
+  hosts:
+    - host: sampleapp.com
+      paths:
+        - path: /mango
+          backend:
+            serviceName: mango-service
+            servicePort: 8080
+          pathType: Prefix
+  tls: []
